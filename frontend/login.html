@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Smart Complaint Portal</title>
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Welcome Back</h2>
+      
+      <div class="input-group">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Email Address</label>
+      </div>
+      
+      <div class="input-group">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="password">Password</label>
+      </div>
+
+      <button class="btn-register" onclick="login()" id="loginBtn">
+        Sign In
+      </button>
+
+      <p id="msg"></p>
+
+      <p class="auth-link">
+        Don't have an account? <a href="register.html">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

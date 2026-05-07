@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "socket.io": "^4.8.3",
+    "twilio": "^6.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

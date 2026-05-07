@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Smart Complaint Portal</title>
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2><i class="fa-solid fa-city"></i> Smart Complaint Portal</h2>
+
+  <a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+  <a href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a>
+  <a href="admin-complaints.html"><i class="fa-solid fa-triangle-exclamation"></i> Complaints</a>
+  <a href="#"><i class="fa-solid fa-building"></i> Departments</a>
+  <a href="#"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
+  <a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a>
+</div>
+<div class="main">
+
+  <h1>📊 Smart Complaint Portal Admin Dashboard</h1>
+
+  <!-- STATS -->
+  <div class="cards">
+    <div class="card"><i class="fa-solid fa-users"></i> Users <h2 id="users">0</h2></div>
+    <div class="card"><i class="fa-solid fa-file"></i> Complaints <h2 id="complaints">0</h2></div>
+    <div class="card"><i class="fa-solid fa-clock"></i> Pending <h2 id="pending">0</h2></div>
+    <div class="card"><i class="fa-solid fa-check"></i> Resolved <h2 id="resolved">0</h2></div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="charts">
+
+    <div class="chart-box">
+      <h3>Complaint Distribution</h3>
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h3>Complaints by Department</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

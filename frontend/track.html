@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>Track Complaint | Smart Complaint Portal</title>
+  <link rel="stylesheet" href="css/track.css">
+</head>
+<body>
+  <div class="track-container">
+    <div class="track-card">
+
+      <h1>Track Your Complaint</h1>
+      <p>Enter your complaint ID to check its current status</p>
+
+      <input type="text" id="complaintId" placeholder="Enter Complaint ID">
+      <button onclick="trackComplaint()">Track Complaint</button>
+
+      <!-- Result Section -->
+      <div id="result" class="result hidden">
+        <h3>Status: <span id="status"></span></h3>
+        <p><strong>Category:</strong> <span id="category"></span></p>
+        <p><strong>Description:</strong> <span id="description"></span></p>
+        <p><strong>Last Updated:</strong> <span id="updated"></span></p>
+      </div>
+
+      <a href="index.html" class="back">← Back to Home</a>
+
+    </div>
+  </div>
+
+  <script src="js/track.js"></script>
+</body>
+</html>

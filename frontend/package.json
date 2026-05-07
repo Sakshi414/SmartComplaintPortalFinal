@@ -1,0 +1,16 @@
+{
+  "name": "smartcomplaintportal-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for Smart Complaint Portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server . --port=3000 --host=localhost",
+    "dev": "live-server . --port=3000 --host=localhost"
+  },
+  "dependencies": {
+    "axios": "^1.13.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

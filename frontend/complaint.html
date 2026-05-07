@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raise a Complaint | Smart Complaint Portal</title>
+
+  <link rel="stylesheet" href="css/complaint.css">
+
+  <!-- SOCKET -->
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
+  <style>
+    /* 🔥 Timeline styling */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .step {
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: gray;
+      color: white;
+      font-size: 12px;
+    }
+
+    .step.active {
+      background: green;
+    }
+
+    /* Result box */
+    .result-box {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #eef6ff;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="complaint-container">
+    <h1>Raise a Complaint</h1>
+    <p>Please fill out the form below to report an issue in your area.</p>
+
+    <form class="complaint-form" enctype="multipart/form-data">
+
+      <label>Category</label>
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option value="water">Water Supply</option>
+        <option value="streetlights">Street Lights</option>
+        <option value="garbage">Garbage Collection</option>
+        <option value="roads">Roads & Infrastructure</option>
+        <option value="transport">Transport Services</option>
+      </select>
+
+      <label>Ward / Area</label>
+      <input type="text" name="area" required />
+
+      <label>Description</label>
+      <textarea name="description" required></textarea>
+
+      <label>Upload Photo</label>
+      <input type="file" name="file" />
+
+      <button type="submit">Submit Complaint</button>
+    </form>
+
+    <!-- 🔥 RESULT + LIVE TRACKING -->
+    <div id="resultBox" class="result-box">
+
+      <p><strong>Complaint ID:</strong> <span id="complaintId"></span></p>
+      <p>Status: <span id="complaintStatus">Pending</span></p>
+
+      <!-- 🔥 TIMELINE -->
+      <div class="timeline">
+        <div class="step">Pending</div>
+        <div class="step">Verified</div>
+        <div class="step">Assigned</div>
+        <div class="step">Resolved</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script>
+    const socket = io("http://localhost:5000");
+
+    const form = document.querySelector(".complaint-form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        alert("Please login first");
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/complaints/file", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert("Complaint submitted successfully!");
+
+          // 🔥 SHOW RESULT BOX
+          document.getElementById("resultBox").style.display = "block";
+          document.getElementById("complaintId").innerText = data.complaintId;
+          document.getElementById("complaintStatus").innerText = "Pending";
+
+          updateTimeline("Pending");
+
+          form.reset();
+        } else {
+          alert(data.message);
+        }
+
+      } catch (err) {
+        console.error(err);
+        alert("Server error");
+      }
+    });
+
+
+    // 🔥 SOCKET LISTENER
+    socket.on("statusUpdate", (data) => {
+      console.log("Live update:", data);
+
+      const currentId = document.getElementById("complaintId").innerText;
+
+      // Only update if same complaint
+      if (data.complaintId === currentId) {
+        document.getElementById("complaintStatus").innerText = data.status;
+        updateTimeline(data.status);
+      }
+    });
+
+
+    // 🔥 TIMELINE FUNCTION
+    function updateTimeline(status) {
+      const steps = ["Pending", "Verified", "Assigned", "Resolved"];
+
+      document.querySelectorAll(".step").forEach((el, index) => {
+        if (index <= steps.indexOf(status)) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

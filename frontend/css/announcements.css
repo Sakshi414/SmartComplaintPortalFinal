@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+}
+
+/* ================= HEADER ================= */
+.top-header {
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
+/* ================= BREAKING BAR ================= */
+.breaking {
+  background: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+}
+
+.live-badge {
+  background: black;
+  padding: 4px 12px;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr; /* balanced layout */
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch;
+}
+
+/* ================= MAIN NEWS ================= */
+.main-news {
+  background: white;
+  padding: 12px;
+}
+
+.main-news img {
+  width: 100%;
+  height: 300px; /* slightly reduced */
+  object-fit: cover;
+}
+
+.main-news h2 {
+  margin: 12px 0 6px;
+  font-size: 22px;
+}
+
+.main-news p {
+  color: #444;
+  line-height: 1.5;
+}
+
+/* ================= SIDE NEWS ================= */
+.side-news {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-item {
+  display: flex;
+  background: white;
+  padding: 12px;
+  gap: 12px;
+  align-items: center;
+  min-height: 95px;
+}
+
+.news-item img {
+  width: 120px; /* bigger thumbnails */
+  height: 80px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.news-item h4 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ================= GRID NEWS ================= */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 20px;
+}
+
+.grid-item {
+  background: white;
+  padding: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.grid-item h4 {
+  margin: 8px 0 4px;
+}
+
+.grid-item p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}

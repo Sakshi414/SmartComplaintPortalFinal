@@ -1,0 +1,125 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Page background with gradient */
+body {
+    background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Form container */
+.complaint-container {
+    background: hsla(214, 44%, 94%, 0.8);
+    /* Slightly transparent white */
+    backdrop-filter: blur(10px);
+    /* Glass effect */
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 800px;
+    /* Broader form */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.complaint-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.complaint-container h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 2rem;
+}
+
+.complaint-container p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+/* Form styling */
+.complaint-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.complaint-form input[type="text"],
+.complaint-form select,
+.complaint-form textarea,
+.complaint-form input[type="file"] {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.complaint-form input:focus,
+.complaint-form select:focus,
+.complaint-form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Textarea sizing */
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Submit button */
+.complaint-form button {
+    width: 100%;
+    padding: 14px;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.complaint-form button:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.step {
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: gray;
+  color: white;
+  font-size: 12px;
+}
+
+.step.active {
+  background: green;
+}

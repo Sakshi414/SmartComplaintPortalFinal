@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Users - Smart Complaint Portal</title>
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2><i class="fa-solid fa-city"></i> Smart Complaint Portal</h2>
+  <a href="admin-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+  <a href="admin-users.html"><i class="fa-solid fa-users"></i> Users</a>
+  <a href="admin-complaints.html"><i class="fa-solid fa-triangle-exclamation"></i> Complaints</a>
+  <a href="#"><i class="fa-solid fa-building"></i> Departments</a>
+  <a href="#"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
+  <a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a>
+</div>
+
+<div class="main">
+  <h1>👥 Users Management</h1>
+  
+  <div class="users-section">
+    <div id="users-container" class="users-grid">
+      <!-- Users will be loaded here via JavaScript -->
+    </div>
+  </div>
+</div>
+
+<script src="js/admin-users.js"></script>
+</body>
+</html>
